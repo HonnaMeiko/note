@@ -5,17 +5,12 @@
 # 把 HandlerThread 原理说明白
 
 
-
-
-
 对 Handler 及 ThreadLocal 不熟悉的小伙伴请先阅读 [把Handler原理说明白.md](./把Handler原理说明白.md) 和  [把ThreadLocal原理说明白.md](./把ThreadLocal原理说明白.md)
 
 对线程同步不清楚的小伙伴，请先阅读[线程同步](../线程系列/线程同步.md)
 
 
-
 ## HandlerThread 是什么
-
 
 
 ```java
@@ -24,8 +19,6 @@
  * used to create handler classes. Note that start() must still be called.
  */
 ```
-
-
 
 简单说来， HandlerThread 是 Android 系统为我们提供的一个便捷类（线程类，继承自 Thread）， 它可以帮助我们开启一个含有 Looper 的新线程。那， 这个 Looper 就可以用于创建 Handler。
 
@@ -53,15 +46,12 @@ class LooperThread extends Thread {
 ```
 
 
-
 在子线程中， 我们需要手动进行 `Looper.prepare()`和 `Looper.loop()`方法的调用。
 
 HandlerThread 就是为了让我们在子线程中使用 Handler 的时候更简便，不需要手动调用 `Looper.prepare()`和 `Looper.loop()`方法， 我们一起来看看它是怎么做的。
 
 
-
 ## HandlerThread 基本用法
-
 
 
 ```java
@@ -126,7 +116,6 @@ public class HandlerThread extends Thread {
     }
 }
 ```
-
 
 
 HandlerThread 直接继承自 Thread 类，因此他是一个线程类，具有线程类的所有特征和方法。
